@@ -22,13 +22,7 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDCJg-qXLOwnyChKWRWdXYif0PwyMRZX38",
-  authDomain: "authtwo-f39c3.firebaseapp.com",
-  projectId: "authtwo-f39c3",
-  storageBucket: "authtwo-f39c3.appspot.com",
-  messagingSenderId: "950668894868",
-  appId: "1:950668894868:web:a397159d2cad905cfd8a81",
-  measurementId: "G-E54Q2ZH2N9",
+//add yours
 };
 
 // Initialize Firebase
