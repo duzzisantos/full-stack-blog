@@ -22,7 +22,7 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-//add yours again
+//find your api and add the keys 
 };
 
 // Initialize Firebase
