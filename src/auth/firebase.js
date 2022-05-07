@@ -22,7 +22,7 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-//add yours
+//add yours again
 };
 
 // Initialize Firebase
