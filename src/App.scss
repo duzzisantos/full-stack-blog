@@ -1,0 +1,765 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Inter:wght@300&family=Nunito+Sans:wght@300&family=Poppins:wght@200;300&family=Quicksand:wght@500&family=Roboto&family=Roboto+Serif:opsz,wght@8..144,300&family=Ubuntu:wght@300&display=swap');
+/*Variables*/
+$common-theme: hsl(300, 10%, 80%);
+$admin-button-colors: (
+  "delete": crimson,
+  "edit": #25d366,
+  "update": #34b7f1,
+  "text-color": white,
+  "text-color-hover": $common-theme,
+);
+$box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+$common-width: 99.7%;
+$common-height: 655px;
+$text-align: left;
+$font-label: 14px;
+$font-weight: 600;
+$font-input: 14px;
+$font-header: 18px;
+$font-style: "Quicksand", sans-serif;
+$font-color: hsl(220, 20%, 40%);
+$margin-left-form: 25px;
+$border-radius: 15px;
+$form-height: 410px;
+$form-width: 350px;
+$button-padding: 7px;
+$button-width: 120px;
+$button-background: $font-color;
+$margin-top: (
+  "short": 5px,
+  "medium": 10px,
+  "wide": 15px,
+);
+$border-style: (
+  "cornflowerblue": 1px solid cornflowerblue,
+  "whitesmoke": 1px solid $common-theme,
+  "teal": 3px solid teal,
+  "trans": 1px solid transparent,
+);
+@mixin input-element {
+  padding: 7px;
+  width: 285px;
+  border-radius: 15px;
+  margin-top: map-get($margin-top, "short");
+}
+
+@mixin headers {
+  text-align: center;
+  color: cornflowerblue;
+  font-size: $font-header;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin containers {
+  height: 645px;
+  width: $common-width;
+  @include flex-column();
+}
+
+/*Main style*/
+.App {
+  font-family: $font-style;
+}
+
+.login,
+.register,
+.reset {
+  @include containers();
+}
+.login-container,
+.register-container,
+.reset-container {
+  height: $form-height;
+  width: $form-width;
+  border: map-get($border-style, "whitesmoke");
+  border-radius: $border-radius;
+  margin-top: 50px;
+}
+
+.dashboard-container {
+  height: 52px;
+  width: 300px;
+  margin-right: 10px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-top: map-get($margin-top, "wide");
+  @include flex-row();
+}
+
+.dashboard-span {
+  height: fit-content;
+  width: fit-content;
+  margin-left: 4px;
+  margin-top: map-get($margin-top, "short");
+  overflow: hidden;
+}
+.dashboard-btn {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-top: 8px;
+}
+
+.dashboard-btn:hover {
+  color: white;
+  background-color: map-get($admin-button-colors, "delete");
+  transition-delay: 20ms;
+}
+label {
+  font: {
+    size: $font-label;
+    weight: $font-weight;
+  }
+  margin-left: $margin-left-form;
+  margin-top: map-get($margin-top, "medium");
+  display: block;
+  color: $font-color;
+}
+
+input,
+.category {
+  @include input-element();
+  margin-left: $margin-left-form;
+  margin-top: map-get($margin-top, "medium");
+  border: map-get($border-style, "whitesmoke");
+  color: $font-color;
+  outline: none;
+  text-indent: 12px;
+  font: {
+    size: $font-input;
+  }
+}
+
+select {
+  padding: $button-padding;
+  width: $button-width;
+  outline: none;
+  margin-bottom: map-get($margin-top, "wide");
+  margin-left: 40px;
+  border-radius: $border-radius;
+  border: 1px solid $common-theme;
+  color: hsl(220, 20%, 40%);
+}
+
+#selection {
+  width: 160px;
+  font-family: $font-style;
+}
+
+button {
+  padding: $button-padding;
+  width: $button-width;
+  border-radius: $border-radius;
+  margin-left: $margin-left-form;
+  margin-bottom: 10px;
+  display: block;
+  margin-top: map-get($margin-top, "medium");
+  border: map-get($border-style, "trans");
+  color: $font-color;
+}
+
+.more-btn {
+  background-color: transparent;
+  padding-left: 0;
+}
+.google {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.facebook {
+  @extend .google;
+  background-image: url("https://holzenergie.info/wp-content/uploads/2017/07/facebook-transparent-logo-png-0.png");
+}
+
+.github {
+  @extend .google;
+  background-image: url("https://cdn-icons-png.flaticon.com/512/25/25231.png");
+}
+button:hover {
+  cursor: pointer;
+}
+
+span {
+  margin-left: $margin-left-form;
+  padding-top: map-get($margin-top, "wide");
+  color: $font-color;
+  font-size: $font-label;
+}
+
+.login-span {
+  display: block;
+}
+
+h3 {
+  @include headers();
+}
+
+h2 {
+  margin-left: max($margin-left-form, 40px);
+  margin-top: map-get($margin-top, "wide");
+  color: $font-color;
+}
+
+h4 {
+  color: $font-color;
+  margin-left: 0px;
+}
+
+h5 {
+  margin-left: $margin-left-form;
+  color: $font-color;
+}
+hr {
+  border: 1px solid $common-theme;
+}
+
+.links {
+  text: {
+    decoration-line: none;
+  }
+  color: cornflowerblue;
+}
+
+.links:hover {
+  color: $font-color;
+}
+
+/*Navbar component*/
+.navbar {
+  height: max($common-height % 10, 90px);
+  background-color: #f8f7ff;
+  box-shadow: $box-shadow;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  @include flex-row();
+}
+
+.footer {
+  height: max($common-height % 10, 90px);
+  background-color: rgb(24, 22, 22);
+  margin-top: 100px;
+  @include flex-row();
+}
+
+.footer-items {
+  li {
+    display: inline-block;
+    margin-left: 20px;
+    padding-top: 15px;
+  }
+}
+.nav-items {
+  width: 100%;
+  height: 90px;
+  margin-top: 0px;
+}
+
+.nav-links {
+  display: inline-block;
+  margin-left: 20px;
+  padding-top: 15px;
+}
+
+.nav-links:nth-child(1) {
+  font-size: 25px;
+  color: cornflowerblue;
+  // text-transform: uppercase;
+  font-weight: 800;
+  text-decoration-line: none;
+  text-decoration: none;
+  margin-left: 0px;
+}
+
+.nav-items #hamburger-icon {
+  display: none;
+}
+.nav-items .dashboard-container{
+  margin-left: 0px;
+}
+.link {
+  color: $font-color;
+  font-size: min($font-label * 1.2, 14px);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: cornflowerblue;
+}
+
+.nav-wrap {
+  @include flex-row();
+  margin-top: 0px;
+}
+
+/*menu items*/
+
+.content-holder {
+  height: fit-content;
+  padding-top: 120px;
+}
+
+.news-holder {
+  width: 100%;
+  height: 310px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.news-holder::-webkit-scrollbar {
+  display: none;
+}
+
+.inner-holder {
+  height: 290px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+.inner-holder::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-box {
+  height: 290px;
+  width: 400px;
+  display: inline-block;
+  margin-left: 3px;
+  border: 1px solid rgb(250, 250, 250);
+  border-radius: none;
+  overflow: hidden;
+}
+
+.carousel-box .image-holder {
+  height: 190px;
+  margin-top: -10px;
+  background-size: cover;
+  // border: 1px solid green;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.post-info {
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  margin-top: 0px;
+  overflow: hidden;
+  display: flex;
+}
+.create-post {
+  height: fit-content;
+  width: 70%;
+  border: 1px solid $common-theme;
+  margin-left: 15%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  height: 200px;
+  width: 70%;
+  margin-left: $margin-left-form;
+  border: 1px solid $common-theme;
+  font-family: $font-style;
+  text-indent: 0px;
+  padding: 10px 10px;
+  outline-color: $common-theme;
+  margin-top: map-get($margin-top, "medium");
+}
+
+article,
+.post-para {
+  padding: 20px 50px;
+}
+
+.manage-content {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: map-get($margin-top, "wide");
+}
+
+fieldset {
+  border: 1px solid $common-theme;
+  border-radius: $border-radius;
+  width: 25%;
+  margin-left: calc(1 / 5.25 * 25%);
+  display: inline-block;
+  margin-bottom: map-get($margin-top, "wide");
+}
+
+legend {
+  height: 50px;
+  width: 50px;
+  border: 1px solid $common-theme;
+  border-radius: 50px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  @include flex-row();
+  color: $font-color;
+}
+
+ul {
+  li {
+    list-style-type: circle;
+    color: $font-color;
+  }
+}
+
+.edit-btn {
+  background-color: transparent;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  color: $common-theme;
+}
+
+.delete-btn {
+  @extend .edit-btn;
+}
+
+.edit-btn:hover {
+  color: map-get($admin-button-colors, "text-color");
+  background-color: map-get($admin-button-colors, "edit");
+}
+
+.delete-btn:hover {
+  @extend .edit-btn:hover;
+  background-color: map-get($admin-button-colors, "delete");
+}
+.writing-utils {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: $common-theme;
+  border: 1px solid transparent;
+  padding: 2em, 4em;
+}
+
+.redirect-me-btn {
+  background-color: transparent;
+  margin-top: 5px;
+  color: white;
+
+  .link {
+    color: white;
+  }
+}
+
+.post-span {
+  color: white;
+}
+.post-span-holder {
+  height: 30px;
+  width: fit-content;
+  margin-left: $font-header;
+}
+
+.post-body {
+  height: fit-content;
+  width: 70%;
+  margin-left: 15%;
+  background-color: rgb(250, 250, 250);
+  padding: 20px 20px;
+  line-height: 4vh;
+}
+
+.post-image-display {
+  height: 300px;
+  width: 400px;
+  display: inline-block;
+  margin-left: 5%;
+  box-shadow: $box-shadow;
+}
+.post-holder {
+  h4 {
+    margin-left: max($margin-left-form, 205px);
+  }
+  label {
+    margin-left: max($margin-left-form, 205px);
+  }
+  input {
+    margin-left: max($margin-left-form, 205px);
+  }
+
+  button {
+    margin-left: max($margin-left-form, 205px);
+  }
+  .textarea-comment {
+    margin-left: max($margin-left-form, 205px);
+    width: 500px;
+    height: 300px;
+    font-family: $font-style;
+    text-indent: 0px;
+    padding: 10px 10px;
+    border-radius: $border-radius;
+  }
+  .pre-comment-hr {
+    border: 1px solid rgb(250, 250, 250);
+    border-radius: 15px;
+    margin-left: 14%;
+    width: 75%;
+  }
+}
+
+.comment-list {
+  margin-left: 15%;
+  width: 50%;
+  background-color: rgb(250, 250, 250);
+  padding: 10px 10px;
+
+  .comment-para {
+    margin-left: 25px;
+    width: 70%;
+    font-size: 14.5px;
+    line-height: 4vh;
+  }
+
+  .comment-avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    background-color: #25d366;
+    color: white;
+    text-align: center;
+    bottom: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .each-comment {
+    height: fit-content;
+    width: 80%;
+    background-color: white;
+    margin-bottom: map-get($margin-top, "medium");
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-left: 5px;
+    padding: 1px 1px;
+  }
+  .each-comment:nth-of-type(even) {
+    @extend .each-comment;
+    background-color: white;
+    margin-left: auto;
+    margin-right: 5px;
+
+    h5 {
+      color: midnightblue;
+    }
+  }
+  h4 {
+    text-align: center;
+    margin-left: 0;
+  }
+  h5 {
+    color: map-get($admin-button-colors, "update");
+  }
+}
+
+#preview,
+#preview3 {
+  height: 60px;
+  margin-left: 25px;
+  margin-top: 3px;
+  display: block;
+}
+
+.dashboard-avi {
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  background-color: black;
+  color: cornflowerblue;
+  text-align: center;
+  margin-top: 12px;
+  margin-left: 4px;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  font-weight: 700;
+}
+
+.category-holder {
+  @extend .content-holder;
+  padding: 30px 30px;
+}
+
+.each-article {
+  height: 30px;
+  width: 70%;
+  margin-left: 15%;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(245, 245, 250);
+  padding: 10px 10px;
+}
+
+.previous-btn,
+.next-btn {
+  display: inline-block;
+  text-align: center;
+  background-color: map-get($admin-button-colors, "edit");
+  color: #f8f7ff;
+}
+.previous-btn {
+  margin-left: 40%;
+}
+/*Responsiveness*/
+
+/*Tablets eg: ipad, galaxy, kindle*/
+
+@media screen and (max-width: 800px) {
+  .nav-links:not(:first-child) {
+    display: none;
+  }
+  .dashboard-container {
+    display: none;
+  }
+  #active {
+    list-style: none;
+    margin-left: 0px;
+  }
+  .nav-items {
+    width: 100%;
+    margin-top: 0px;
+    height: 90px;
+  }
+  .nav-items #hamburger-icon {
+    display: inline-block;
+    height: 90px;
+    margin-left: 90%;
+    margin-top: -60px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .nav-items.responsive {
+    position: relative;
+    height: fit-content;
+    background-color: cornflowerblue;
+    // margin-top: 90px;
+    width: 100%;
+  }
+  .nav-items.responsive #hambuger-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: white;
+  }
+  .nav-items.responsive .nav-links,
+  .nav-links .link {
+    float: none;
+    display: block;
+    text-align: left;
+    color: white;
+  }
+
+.nav-links .dashboard-container{
+    // float: none;
+    display: inline-flex;
+    text-align: left;
+    color: white;
+    margin-left: -10px;
+    margin-top: 0;
+    height: 60px;
+    width: 300px;
+    padding: 1px 1px;
+
+    .dashboard-avi, .dashboard-span, .dashboard-btn{
+      display: inline-block;
+      padding-top: 10px 10px;
+    }
+
+    .dashboard-span:nth-child(1){
+      display: none;
+    }
+  }
+  fieldset {
+    margin-left: 3.5%;
+  }
+  .previous-btn {
+    margin-left: 15%;
+    width: 100px;
+    margin-top: map-get($margin-top, "wide");
+  }
+  .next-btn {
+    width: 100px;
+    margin-top: map-get($margin-top, "wide");
+    margin-left: 5px;
+  }
+  h2 {
+    font-size: 1em;
+  }
+  .post-span-holder {
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+  }
+  .post-image-display {
+    height: 200px;
+    width: 350px;
+    margin-left: 50px;
+  }
+  .post-holder {
+    margin-left: 0px;
+  }
+  .post-body {
+    margin-left: 0px;
+    width: 100%;
+  }
+  .comment-list {
+    width: 335px;
+  }
+  .comments {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+  .comments {
+    input,
+    h4,
+    label,
+    .textarea-comment,
+    button {
+      margin-left: 15px;
+    }
+    .textarea-comment {
+      width: 80%;
+    }
+  }
+  .dashboard-container{
+    display: block;
+  }
+}
